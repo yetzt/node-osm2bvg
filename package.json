@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "osm2bvg",
+  "version": "0.0.1",
+  "description": "fetch berlin public transport from open street map and convert routes to geojson",
+  "main": "osm2bvg.js",
+  "bin": {
+    "osm2bvg": "./osm2bvg.js"
+  },
+  "author": "Sebastian Vollnhals <sv@dsst.io> (https://dsst.io/)",
+  "license": "Unlicense",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "queue": "^3.1.0",
+    "scrapyard": "^0.1.0",
+    "turf": "^2.0.2",
+    "turf-multilinestring": "^1.0.2"
+  }
+}
