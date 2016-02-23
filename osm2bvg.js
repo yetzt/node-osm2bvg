@@ -118,7 +118,7 @@ function fetchWay(id, fn){
 			osm.nodes.forEach(function(nodeid, noden){
 				q.push(function(next){
 					fetchNode(nodeid, function(err, node){
-						if (err) return debug("clould not fetch node %d for way %d: %s", nodeid, id, err) || next();
+						if (err) return debug("could not fetch node %d for way %d: %s", nodeid, id, err) || next();
 						osm.linestring[noden] = node.coords;
 						next();
 					});
@@ -157,7 +157,7 @@ function fetchRoute(route, fn){
 	route.ways.forEach(function(way, wayn){
 		q.push(function(next){
 			fetchWay(way.id, function(err, data){
-				if (err) return debug("clould not fetch way %d for route %d: %s", way.id, route.id, err) || next();
+				if (err) return debug("could not fetch way %d for route %d: %s", way.id, route.id, err) || next();
 				data.role = way.role;
 				ways[wayn] = data;
 				next();
@@ -170,7 +170,7 @@ function fetchRoute(route, fn){
 	route.nodes.forEach(function(node, noden){
 		q.push(function(next){
 			fetchNode(node.id, function(err, data){
-				if (err) return debug("clould not fetch node %d for route %d: %s", node.id, route.id, err) || next();
+				if (err) return debug("could not fetch node %d for route %d: %s", node.id, route.id, err) || next();
 				data.role = node.role;
 				nodes[noden] = data;
 				next();
@@ -202,7 +202,7 @@ function fetchRoutes(rels, fn){
 	function resolveRelation(rel, parent, next){
 		
 		// prevent double fetching
-		if (fetchedRels.indexOf(rel) >= 0) return debug("alreaded fetched relation %d", rel) || next();
+		if (fetchedRels.indexOf(rel) >= 0) return debug("already fetched relation %d", rel) || next();
 		fetchedRels.push(rel);
 		
 		// fetch
